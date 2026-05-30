@@ -67,6 +67,7 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         nav a {
@@ -135,7 +136,7 @@
             font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.03em;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
             display: inline-block;
         }
@@ -151,35 +152,59 @@
             border-radius: 2px;
         }
 
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+        .projects-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .card {
+        /* Collapsible Project Accordion Styles */
+        details.project-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 2rem;
             box-shadow: var(--card-shadow);
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        details.project-card[open] {
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+
+        summary.project-header {
+            padding: 1.75rem 2rem;
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            font-weight: 600;
+        }
+
+        summary.project-header::-webkit-details-marker {
+            display: none;
+        }
+
+        .project-title-block {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 0.5rem;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(14, 165, 233, 0.4);
-        }
-
-        .card-header h3 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .project-title-block h3 {
+            font-size: 1.3rem;
             letter-spacing: -0.02em;
-            line-height: 1.3;
+            color: var(--text-main);
+        }
+
+        .project-meta-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
         }
 
         .card-tag {
@@ -188,10 +213,9 @@
             font-family: 'JetBrains+Mono', monospace;
             background-color: rgba(255, 255, 255, 0.05);
             color: var(--text-muted);
-            padding: 0.25rem 0.6rem;
+            padding: 0.2rem 0.5rem;
             border-radius: 4px;
             border: 1px solid var(--border);
-            margin-bottom: 1.25rem;
         }
 
         .patent-tag {
@@ -200,34 +224,94 @@
             border-color: rgba(16, 185, 129, 0.2);
         }
 
-        .card-body {
+        .toggle-icon {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            font-family: 'JetBrains+Mono', monospace;
         }
 
-        .card-body ul {
+        details.project-card[open] .toggle-icon {
+            transform: rotate(45deg);
+            color: var(--accent);
+        }
+
+        .project-content {
+            padding: 0 2rem 2rem 2rem;
+            border-top: 1px solid rgba(51, 65, 85, 0.5);
+            background-color: rgba(15, 23, 42, 0.2);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 850px) {
+            .project-grid { grid-template-columns: 1fr; }
+        }
+
+        .project-description ul {
             list-style-type: none;
         }
 
-        .card-body li {
-            margin-bottom: 0.5rem;
+        .project-description li {
+            margin-bottom: 0.75rem;
             padding-left: 1.25rem;
             position: relative;
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
-        .card-body li::before {
+        .project-description li::before {
             content: "→";
             position: absolute;
             left: 0;
             color: var(--accent);
         }
 
+        /* GIF Animation Placeholder Styling */
+        .project-visual-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .project-gif-placeholder {
+            width: 100%;
+            height: 220px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'JetBrains+Mono', monospace;
+            text-align: center;
+            padding: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        details.project-card:hover .project-gif-placeholder {
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+
+        .gif-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--border);
+        }
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: auto;
+            margin-top: 1.25rem;
         }
 
         .tech-badge {
@@ -244,7 +328,8 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            max-width: 800px;
+            max-width: 850px;
+            margin: 0 auto;
         }
 
         .timeline-item {
@@ -273,35 +358,64 @@
         }
 
         .timeline-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
         }
 
         .timeline-company {
             font-size: 1rem;
-            color: var(--text-muted);
+            color: var(--text-main);
             font-weight: 500;
             margin-bottom: 1rem;
         }
 
+        .timeline-body ul {
+            list-style-type: none;
+        }
+
+        .timeline-body li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-body li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group {
+            background-color: rgba(30, 41, 59, 0.3);
+            border: 1px solid var(--border);
+            padding: 1.75rem;
+            border-radius: 8px;
         }
 
         .skill-group h4 {
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-main);
+            margin-bottom: 1.25rem;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
         }
 
         .skill-list {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .skill-item {
@@ -318,15 +432,74 @@
             font-weight: bold;
         }
 
+        /* Formspree Integrated Contact Form Styles */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 850px) {
+            .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 2.25rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-family: 'JetBrains+Mono', monospace;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input, .form-group textarea {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.15);
+        }
+
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--accent);
             color: var(--bg-primary);
-            padding: 0.75rem 1.5rem;
+            padding: 0.8rem 1.75rem;
             border-radius: 6px;
             font-weight: 600;
             text-decoration: none;
             transition: background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .btn:hover {
@@ -337,11 +510,17 @@
             background-color: transparent;
             color: var(--text-main);
             border: 1px solid var(--border);
-            margin-left: 1rem;
         }
 
         .btn-secondary:hover {
             background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-muted);
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
         }
 
         footer {
@@ -356,8 +535,8 @@
             h1 { font-size: 2.5rem; }
             nav ul { display: none; }
             .hero-section { min-height: auto; padding-top: 6rem; }
-            .btn { width: 100%; text-align: center; margin-bottom: 1rem; }
-            .btn-secondary { margin-left: 0; }
+            .hero-buttons { display: flex; flex-direction: column; width: 100%; gap: 1rem; }
+            .btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -373,6 +552,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="ChintanShah_Resume.pdf" download class="btn btn-secondary nav-btn">Resume ↓</a></li>
                 </ul>
             </nav>
         </div>
@@ -384,234 +564,402 @@
             <h1>Chintan Shah</h1>
             <h2>Biomedical R&D Design Engineer</h2>
             <p class="lead-text">
-                Biomedical Engineer specializing in the end-to-end development of precision medical devices, with direct industry experience in intraocular lens (IOL) mechanical testing and process validation. Adept at cross-functional collaboration, translating complex structural requirements into patent-eligible engineering controls, and executing hardware Verification & Validation (V&V) under strict ISO 13485 compliance frameworks.
+                Biomedical Engineer specializing in the end-to-end engineering of precision medical devices, with proven industry experience in intraocular lens mechanical analysis, robotic hardware calibration, and verification testing under ISO 13485 regulatory guidelines. Expert at translating clinical specifications into robust, functional product designs and patent-pending technical solutions.
             </p>
-            <div>
-                <a href="#projects" class="btn">View Technical Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn" style="margin-right: 1rem;">Explore Projects</a>
+                <a href="ChintanShah_Resume.pdf" download class="btn btn-secondary">Download Full Resume (PDF) ↓</a>
             </div>
         </section>
 
         <section id="projects">
-            <h3 class="section-title">Technical Project Portfolio</h3>
-            <div class="grid-layout">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 class="section-title">Technical Projects Matrix</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Click on any project heading to expand its details and animation layout.</p>
+            </div>
+            
+            <div class="projects-stack">
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag patent-tag">US Patent Pending</div>
-                        <h3>1. Universal Syringe Adapter</h3>
+                <details class="project-card" open>
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>1. Universal Syringe Adapter</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag patent-tag">US Patent Pending</span>
+                                <span class="card-tag">R&D Lifecycle</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Designed a passive mechanical fluid-control attachment for standard 10 mL BD Luer Lock syringes to eliminate operator delivery variance in endoscopic tissue marking.</li>
+                                    <li>Engineered a dual spring-loaded plunger housing providing 30N spring-force haptic clicks at precise 0.5 mL volumetric intervals.</li>
+                                    <li>Executed full Verification & Validation (V&V) protocols, demonstrating a statistically significant volume variance reduction (p &lt; 0.0001) compared to conventional models.</li>
+                                    <li>Mitigated operational mechanical failure modes using structured FMEA risk management controls during advanced ex vivo prototyping trials.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">SolidWorks CAD</span>
+                                    <span class="tech-badge">V&V Protocols</span>
+                                    <span class="tech-badge">FMEA Matrix</span>
+                                    <span class="tech-badge">GraphPad Prism</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Universal_Syringe_Adapter.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with your 3D CAD rotation animation</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Designed a passive, mechanical fluid control attachment for standard 10 mL BD Luer Lock syringes to eliminate operator volumetric delivery variability in endoscopic tattooing.</li>
-                            <li>Engineered and optimized a dual spring-loaded ball bearing plunger housing with a 13-notch feedback track (providing 30N spring force haptic clicks at precise 0.5 mL increments).</li>
-                            <li>Sliced using Orca Slicer and fabricated structural prototype layers using FDM 3D printing with biocompatible polylactic acid (PLA) on a Creality K1C system.</li>
-                            <li>Demonstrated a reduction in delivery absolute variance via 2-way ANOVA analysis (p &lt; 0.0001) and confined submucosal spot spread sizes by 46% (p = 0.023) in ex vivo pig intestinal tissue models.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">SolidWorks CAD</span>
-                        <span class="tech-badge">FDM 3D Printing</span>
-                        <span class="tech-badge">GraphPad Prism</span>
-                        <span class="tech-badge">Ex Vivo Testing</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag patent-tag">Design Patent Registered (India)</div>
-                        <h3>2. Electric Go-Kart Design</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>2. Design of Electric Go-Kart</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag patent-tag">Design Patent Registered (India)</span>
+                                <span class="card-tag">Chassis Integration</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Co-developed the structural design configuration, frame layout, and mechanical component integration for a high-performance electric go-kart chassis.</li>
+                                    <li>Successfully submitted and secured a formal Indian Certificate of Registration of Design under Class 12-08 (Design No. 380658-001) from the Government Patent Office.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Chassis Layout</span>
+                                    <span class="tech-badge">Mechanical Integrity</span>
+                                    <span class="tech-badge">Patent Filing</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Electric_GoKart_Design.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with structural blueprint frame animation</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Co-developed the structural design configuration and mechanical integration for a performance-oriented electric go-kart frame layout.</li>
-                            <li>Successfully registered a formal Indian Certificate of Registration of Design under Class 12-08 (Design No. 380658-001) via the Patent Office, Government of India.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Chassis Design</span>
-                        <span class="tech-badge">Mechanical Integration</span>
-                        <span class="tech-badge">Regulatory Filings</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">B.Tech Capstone Project</div>
-                        <h3>3. Lower Limbs Exoskeleton</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>3. Lower Limbs Exoskeleton</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">B.Tech Capstone</span>
+                                <span class="card-tag">Robotics & Controls</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Designed a wearable, assistive robotic lower-extremity exoskeleton frame structure in SolidWorks to support physical rehabilitation pathways.</li>
+                                    <li>Synchronized mechanical link articulation paths with biological human gait cycles to establish proper angular displacement bounds.</li>
+                                    <li>Built a functional Proof-of-Concept (PoC) model to validate linkages, integrating high-torque DC motors, position tracking sensors, and a custom control network.</li>
+                                    <li>Conducted structural load analysis to successfully validate shear and tensile safety factors across load-bearing frame links.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">SolidWorks CAE</span>
+                                    <span class="tech-badge">Gait Kinematics</span>
+                                    <span class="tech-badge">PoC Prototyping</span>
+                                    <span class="tech-badge">DC Motors</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Lower_Limbs_Exoskeleton.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with kinematic linkage movement clip</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Designed a wearable, assistive robotic lower-extremity exoskeleton frame structure in SolidWorks aimed at accelerating therapeutic recovery windows for paraplegia and physical rehabilitation.</li>
-                            <li>Synchronized mechanical link articulation directly to biological human gait parameters in the sagittal plane, tracking joint degree-of-freedom angular displacement paths.</li>
-                            <li>Integrated 4 high-torque permanent magnet DC motors controlled by H-Bridge motor drivers via a custom PCB infrastructure to safely drive automated hip/knee flexion and extension cycles.</li>
-                            <li>Constructed physical prototype chassis frameworks using 5mm thick load-bearing acrylic sheeting, customized ply-brackets, and integrated interactive joint touch sensors to augment active user movement thresholds.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">SolidWorks CAD</span>
-                        <span class="tech-badge">Kinematic Analysis</span>
-                        <span class="tech-badge">Dual H-Bridge Drivers</span>
-                        <span class="tech-badge">PCB Design</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">Human Factors Engineering</div>
-                        <h3>4. Police Wear Biomechanics Analysis</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>4. Police Wear Biomechanics</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">Ergonomics</span>
+                                <span class="card-tag">Signal Processing</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Assessed dynamic musculoskeletal injury risks induced on tactical responders by layered equipment loads (body armor vests and duty belts).</li>
+                                    <li>Programmed a data processing pipeline in MATLAB to analyze streamed multi-axis accelerometer and gyroscope data streams to quantify gait trajectory variations.</li>
+                                    <li>Calculated nonlinear Lyapunov chaotic trajectory exponents to evaluate stability shifts under unexpected external physical perturbations.</li>
+                                    <li>Conducted formal RULA and REBA risk index profiles for vehicle entry and exit tasks, modeling a swiveling seat control mechanism to reduce lower lumbar strain.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">MATLAB Data Pipeline</span>
+                                    <span class="tech-badge">Kinematic Inertial Sensors</span>
+                                    <span class="tech-badge">RULA/REBA Index</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Police_Biomechanics_Data.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with MATLAB signal or ergonomic mesh animation</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Assessed occupational musculoskeletal injury risk profiles induced on first responders by multi-layered uniform gear setups (3.1 lbs soft trauma body armor vest and a 9.7 lbs outer duty leather belt carrying 12.8 lbs of gear components).</li>
-                            <li>Quantified linear and nonlinear parameters of postural stability and gait trajectories using an iPhone-based system to stream multi-axis accelerometer and gyroscope data channels.</li>
-                            <li>Developed a signal processing pipeline in MATLAB to execute nonlinear Lyapunov exponent analysis, mapping chaotic trajectory convergence patterns against unexpected user perturbations.</li>
-                            <li>Conducted strict Rapid Entire Body Assessment (REBA) and Rapid Upper Limb Assessment (RULA) evaluations on dynamic tasks (vehicle ingress/egress and cabin reaching) across sedans and full-size trucks.</li>
-                            <li>Modeled custom mechanical engineering controls, prototyping an active swiveling vehicle car seat design to minimize lumbar twisting stresses on tactical duty operators.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">MATLAB</span>
-                        <span class="tech-badge">REBA / RULA Worksheets</span>
-                        <span class="tech-badge">Lyapunov Exponents</span>
-                        <span class="tech-badge">Ergonomic Modeling</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">Advanced Biomaterials Proposal</div>
-                        <h3>5. Biodegradable Exoskeleton Construct</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>5. Biodegradable Exoskeleton Construct</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">Coursework Paper Concept</span>
+                                <span class="card-tag">Theoretical Formulation</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li><strong>Theoretical Concept Paper:</strong> Formulated a comprehensive advanced biomaterials research design proposal executed completely on paper for academic evaluation.</li>
+                                    <li>Proposed a theoretical shape-memory smart composite blending Polycaprolactone (PCL) matrices with alginate hydrogels reinforced via graphene oxide nanocomposites.</li>
+                                    <li>Architected theoretical extrusion printing paths utilizing modeled gyroid internal structural geometries to align material porosity bounds with human bone resorption graphs.</li>
+                                    <li>Outlined theoretical assay methodologies to verify degradation paths and structural load profiles over a conceptual 12-week timeline.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Biomaterial Theory</span>
+                                    <span class="tech-badge">Porosity Modeling</span>
+                                    <span class="tech-badge">NIH Proposal Blueprint</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Biodegradable_Scaffold_Concept.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with a schematic map or structural graphic</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Authored a comprehensive advanced research project proposal modeled on NIH grant criteria to engineer a stimuli-responsive, dynamically adaptable biodegradable prosthetic support scaffold.</li>
-                            <li>Formulated a smart composite matrix blending Polycaprolactone (PCL) shape-memory polymers with alginate hydrogels, reinforced structurally with bioactive graphene oxide and hydroxyapatite nanomaterials.</li>
-                            <li>Modeled specialized extrusion-based 3D printing paths utilizing gyroid and hexagonal internal infill architectures to tailor structural porosity parameters directly to physiological bone degradation curves.</li>
-                            <li>Incorporated biological verification metrics demonstrating a 40% tensile and 30% compressive strength expansion with &gt;90% cell viability profiles in fibroblast/osteoblast survival assays across a 12-week PBS degradation timeline.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Biomaterial Formulation</span>
-                        <span class="tech-badge">Scaffold Synthesis</span>
-                        <span class="tech-badge">In Vitro Assay Design</span>
-                        <span class="tech-badge">Orca Slicer</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">Product Design Leadership</div>
-                        <h3>6. Hanuman: Organ Delivery Drone</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>6. Hanuman: Organ Delivery Drone</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">Product Architecture</span>
+                                <span class="card-tag">Structural Layout</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Acted as the Lead Product Designer for a high-priority conceptual transport layout meant to securely ferry critical medical cargo across city corridors.</li>
+                                    <li>Engineered the protective shell architecture and motor torque balances tailored to a 40–50 lb structural launch envelope (25 lb max net cargo footprint).</li>
+                                    <li>Specified dynamic power paths calling for a 300 kV high-thrust brushless engine running on a 6S 10,000 mAh LiPo grid delivering 210W of continuous shaft power.</li>
+                                    <li>Designed an integrated storage chamber containing tuned internal dampening mechanisms to decouple internal payload boxes from high-frequency structural vibration.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Vibration Isolation</span>
+                                    <span class="tech-badge">Enclosure Design</span>
+                                    <span class="tech-badge">Load Profiling</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Hanuman_Drone_Enclosure.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with aerodynamic flight casing layout</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Served as the Lead Product Designer on a specialized multi-disciplinary engineering initiative to build an emergency organ transport unmanned aerial vehicle system.</li>
-                            <li>Engineered an aerodynamic structural enclosure and internal mounting configuration optimized for a 40–50 lb gross payload footprint, delivering a maximum payload carrying capacity of 25 lbs.</li>
-                            <li>Calculated drone motor load balances using high-thrust specifications, establishing performance paths utilizing a 9 kg thrust 300 kV motor layout pushing 210 W of maximum shaft power on a 24V 6S 10000 mAh LiPo network.</li>
-                            <li>Designed a custom interior medical transport chamber with mechanical vibration-damping isolation systems to extend biological tissue viability, cutting municipal transport windows from 90 to 30 minutes.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Product Design</span>
-                        <span class="tech-badge">UAV Structural Design</span>
-                        <span class="tech-badge">Vibration Damping</span>
-                        <span class="tech-badge">Load Balancing</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">IRJET Publication</div>
-                        <h3>7. Drive Thru Supermarket System</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>7. Drive Thru Supermarket System</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">IRJET Published</span>
+                                <span class="card-tag">Automation Architecture</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Published an automated materials acquisition framework in the International Research Journal of Engineering and Technology (IRJET).</li>
+                                    <li>Modeled a multi-tier carousel system and sorting conveyor layout in SolidWorks to minimize storage retrieval times.</li>
+                                    <li>Constructed an electromechanical prototype combining an Arduino Uno core with L298 h-bridge drivers to automate rack positioning cycles.</li>
+                                    <li>Configured dual direct-current motor parameters tuned to handle shifting load balances (up to 47 N.m torque loads at low-speed intervals).</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">SolidWorks Layout</span>
+                                    <span class="tech-badge">Arduino Core</span>
+                                    <span class="tech-badge">L298 H-Bridge</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[DriveThru_Supermarket.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with automated conveyor loop rotation animation</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Published a complete automated retail product acquisition framework within the International Research Journal of Engineering and Technology (IRJET, Volume 08).</li>
-                            <li>Modeled an internal automated carousel system and synchronous conveyor belt handling structure using SolidWorks to optimize space and minimize consumer product location cycles.</li>
-                            <li>Developed a hardware control prototype pairing an Arduino Uno architecture with L298 bidirectional motor driver modules running on a 12V, 3A line to automate structural rack rotations.</li>
-                            <li>Configured multi-motor dynamic torque parameters using dual permanent magnet DC motors calibrated to high-torque operation limits (Motor A: 15 N.m at 10 rpm; Motor B: 47 N.m at 3 rpm).</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">SolidWorks CAD</span>
-                        <span class="tech-badge">Arduino Uno</span>
-                        <span class="tech-badge">L298 Driver Modules</span>
-                        <span class="tech-badge">System Prototyping</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">Machine Learning & Analytics</div>
-                        <h3>8. Sports Fitness Detection through ML</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>8. Sports Fitness Detection via ML</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">Data Science</span>
+                                <span class="card-tag">Machine Learning</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Built an engineering script pipeline designed to parse multi-variable human performance charts to extract predictive health metrics.</li>
+                                    <li>Structured data cleaning and scaling stages to normalize raw input tables containing biographical attributes and sensor readings.</li>
+                                    <li>Applied Principal Component Analysis (PCA) to significantly isolate dominant performance variances and drop data dimensionality constraints.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">Python Analytics</span>
+                                    <span class="tech-badge">Scikit-Learn</span>
+                                    <span class="tech-badge">PCA Breakdown</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Fitness_ML_Analytics.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with data plot or training accuracy variance loop</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Engineered a predictive analytics machine learning framework to evaluate individual athletic training intensities and output fitness optimization benchmarks.</li>
-                            <li>Structured a data preprocessing pipeline to handle highly diversified datasets containing biometric variables, unique activity vectors, and performance indicators.</li>
-                            <li>Executed advanced feature selection metrics using Principal Component Analysis (PCA) to extract high-variance parameters, feeding data models into customized classification and regression algorithms.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python Analytics</span>
-                        <span class="tech-badge">Scikit-Learn</span>
-                        <span class="tech-badge">PCA Dimensionality</span>
-                        <span class="tech-badge">Data Processing</span>
-                    </div>
-                </div>
+                </details>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-tag">Wearable Systems Engineering</div>
-                        <h3>9. Wearable Rumination Detection Wearable</h3>
+                <details class="project-card">
+                    <summary class="project-header">
+                        <div class="project-title-block">
+                            <h3>9. Overthinking Detection & Mitigation</h3>
+                            <div class="project-meta-tags">
+                                <span class="card-tag">Sensor Fusion</span>
+                                <span class="card-tag">Wearable Circuitry</span>
+                            </div>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </summary>
+                    <div class="project-content">
+                        <div class="project-grid">
+                            <div class="project-description">
+                                <ul>
+                                    <li>Synthesized a closed-loop data architecture combining Galvanic Skin Response (GSR) data logs with concurrent heart rate variance parameters.</li>
+                                    <li>Mapped changes in skin electrical conductance to isolate peripheral signs of stress and sympathetic autonomic nervous activation.</li>
+                                    <li>Utilized 3-axis accelerometer thresholds to rule out kinetic motion artifacts, confining processing rules exclusively to restful data periods.</li>
+                                    <li>Designed a closed-loop mechanism intended to introduce subtle acoustic cues to help mitigate elevated emotional spikes.</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">GSR Circuit Isolation</span>
+                                    <span class="tech-badge">Sensor Interactivity</span>
+                                    <span class="tech-badge">Artifact Mitigation</span>
+                                </div>
+                            </div>
+                            <div class="project-visual-wrapper">
+                                <div class="project-gif-placeholder">
+                                    <div class="gif-icon">⎔</div>
+                                    <strong>[Overthinking_Wearable_Fusion.gif]</strong>
+                                    <span style="font-size:0.75rem; margin-top:0.25rem;">Replace with wearable sensor circuit block schematic</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Synthesized a multi-sensor fusion monitoring framework for a closed-loop consumer health wearable tracking physiological markers of psychological overthinking and anxiety.</li>
-                            <li>Cross-correlated Galvanic Skin Response (GSR) electrical skin conductance signals with heart rate variability (HRV) metrics to accurately map sympathetic "fight or flight" nervous activation.</li>
-                            <li>Programmed an adaptive learning logic utilizing 3-axis accelerometer thresholds to isolate structural immobility windows, filtering out motion artifacts to isolate active cognitive rest state metrics.</li>
-                            <li>Quantified real-time thought latency trends, episodic frequency peaks, and conductance variance parameters to trigger non-critical mindfulness acoustic cues and slow deep breathing feedback metrics.</li>
-                        </ul>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Sensor Fusion Architecture</span>
-                        <span class="tech-badge">Signal Conditioning</span>
-                        <span class="tech-badge">GSR Circuitry</span>
-                        <span class="tech-badge">Adaptive Thresholds</span>
-                    </div>
-                </div>
+                </details>
 
             </div>
         </section>
 
         <section id="experience">
-            <h3 class="section-title">Professional Experience</h3>
+            <h3 class="section-title">Professional Industry Track</h3>
             <div class="timeline">
+                
                 <div class="timeline-item">
                     <div class="time-meta">March 2026 – Present</div>
                     <div class="timeline-title">Robotic Production Associate</div>
                     <div class="timeline-company">Matic Robots | Sunnyvale, CA</div>
-                    <div class="card-body">
+                    <div class="timeline-body">
                         <ul>
-                            <li>Lead Quality Assurance (QA) and Verification & Validation (V&V) processes for robotic hardware systems and autonomous cleaning platforms across high-volume assembly lines.</li>
-                            <li>Execute high-fidelity calibration stacks and comprehensive functional regression tests for multi-sensor camera-based navigation nodes, systematically diagnosing and correcting deep hardware-software drift anomalies.</li>
+                            <li>Lead Quality Assurance (QA) and Verification & Validation (V&V) procedures for complex robotic hardware frames and mobile autonomous machinery across high-throughput lines[cite: 15, 16, 17].</li>
+                            <li>Calibrate intricate multi-axis tracking cameras and navigation nodes, documenting and fixing anomalies between hardware sensors and embedded code[cite: 18].</li>
+                            <li>Manage final inspection safety gates and shipping sign-offs for all consumer configurations, verifying strict conformance with performance criteria[cite: 19].</li>
                         </ul>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="time-meta">January 2025 – February 2026</div>
+                    <div class="timeline-title">Research Associate (Medical Device Development)</div>
+                    <div class="timeline-company">Yaron Lab | Tempe, AZ</div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Spearheaded the complete end-to-end R&D lifecycle for a novel, patent-pending universal syringe attachment optimizing fluid delivery controls[cite: 24].</li>
+                            <li>Translated clinical user requirements into multi-part SolidWorks CAD assemblies and successfully fabricated functional mechanical prototypes[cite: 25].</li>
+                            <li>Applied FMEA risk management protocols to analyze mechanical load hazards, helping improve target fluid spot containment by >90% (p &lt; 0.05)[cite: 26, 28].</li>
+                            <li>Generated comprehensive design verification datasets and rigorous compliance documentation following ISO 13485 Design Control paths[cite: 29].</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="timeline-item">
                     <div class="time-meta">May 2025 – August 2025</div>
-                    <div class="timeline-title">Manufacturing Engineer (Ophthalmic Devices Internship)</div>
-                    <div class="timeline-company">Alcon Vision | Belmont, CA</div>
-                    <div class="card-body">
+                    <div class="timeline-title">R&D Process Intern (Ophthalmic Engineering)</div>
+                    <div class="timeline-company">Alcon | Belmont, CA</div>
+                    <div class="timeline-body">
                         <ul>
-                            <li>Managed mechanical design verification pipelines for advanced intraocular lenses (IOL), executing precise characterization protocols to determine axial stiffness limits and target haptic height dimensions.</li>
-                            <li>Developed custom automation parsing scripts in Python to evaluate mechanical testing metrics and executed rigorous Gage R&R studies within Minitab to confirm multi-operator testing system reliability.</li>
-                            <li>Programmed automated multi-axis visual dimensional inspection routines using InSpec (Micro Vu) scripts, migrating batch inspections from standard random testing onto 100% inspection pathways.</li>
-                            <li>Designed and rapid-prototyped a 3D-printed anatomical model eye mimicking precise clinical ocular geometries to serve as a functional training prop for medical procedural calibration.</li>
+                            <li>Conducted precise engineering bench testing and Test Method Validation (TMV) tracking axial stiffness variables for premium Intraocular Lenses (IOL)[cite: 30, 34, 35].</li>
+                            <li>Programmed custom data automation parsing scripts in Python to evaluate lens parameters; ran Gage R&R iterations in Minitab to isolate measurement variance[cite: 36, 37].</li>
+                            <li>Authored automated metrology routines via InSpec (Micro Vu) software scripts, scaling testing procedures into 100% full inspection pipelines[cite: 38].</li>
+                            <li>Designed and 3D-printed a multi-layer anatomical model eye replicating human optical parameters to support technical laser calibration tracks[cite: 39].</li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -621,49 +969,78 @@
                 <div class="skill-group">
                     <h4>Design & Prototyping</h4>
                     <div class="skill-list">
-                        <div class="skill-item">SolidWorks (CAD / CAE)</div>
-                        <div class="skill-item">DfX (Design for Excellence)</div>
-                        <div class="skill-item">Rapid Prototyping & 3D Printing (FDM)</div>
-                        <div class="skill-item">Mechanism & Mechanical Fixture Design</div>
+                        <div class="skill-item">SolidWorks (CAD / CAE) [cite: 5, 9]</div>
+                        <div class="skill-item">DfX (Design for Manufacturing/Assembly) [cite: 9]</div>
+                        <div class="skill-item">FDM 3D Printing & Rapid Prototyping [cite: 9]</div>
+                        <div class="skill-item">Mechanism & Fixture Modeling [cite: 9]</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h4>Quality & Regulatory Compliance</h4>
+                    <h4>Quality & Regulatory</h4>
                     <div class="skill-list">
-                        <div class="skill-item">ISO 13485 Frameworks</div>
-                        <div class="skill-item">Design Controls & Risk Management (FMEA)</div>
-                        <div class="skill-item">EU MDR & FDA GxP Regulations</div>
-                        <div class="skill-item">IQ / OQ / PQ Protocol Evaluation</div>
+                        <div class="skill-item">ISO 13485 Design Controls [cite: 5, 10, 29]</div>
+                        <div class="skill-item">FMEA Risk Management & CAPA [cite: 10, 26, 28]</div>
+                        <div class="skill-item">GxP Compliance / EU MDR Guidelines [cite: 5, 10]</div>
+                        <div class="skill-item">IQ / OQ / PQ Validation Outlines [cite: 11]</div>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h4>Validation, Testing & Data</h4>
+                    <h4>Validation & Data</h4>
                     <div class="skill-list">
-                        <div class="skill-item">Verification & Validation (V&V Testing)</div>
-                        <div class="skill-item">Python Programming & Data Analytics</div>
-                        <div class="skill-item">Minitab (Statistical Process Control / Six Sigma)</div>
-                        <div class="skill-item">InSpec (Micro Vu) Visual Metrology Scripts</div>
-                        <div class="skill-item">Test Method Validation (TMV) & Gage R&R</div>
+                        <div class="skill-item">Hardware Verification & Validation (V&V) [cite: 5, 11]</div>
+                        <div class="skill-item">Python Programming & Scripting [cite: 12, 36]</div>
+                        <div class="skill-item">Minitab Statistical Process Control [cite: 12, 37]</div>
+                        <div class="skill-item">InSpec (Micro Vu) Vision Metrology [cite: 12, 38]</div>
+                        <div class="skill-item">Test Method Validation & Gage R&R [cite: 11, 35, 37]</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" style="margin-bottom: 4rem;">
-            <h3 class="section-title">Contact & Professional Network</h3>
-            <p class="lead-text" style="margin-bottom: 1.5rem;">
-                Looking to discuss medical device design opportunities, coordinate mechanical R&D projects, or connect regarding automation validation systems? Reach out through the following channels:
-            </p>
-            <div class="skill-list" style="gap: 1rem; font-family: 'JetBrains+Mono', monospace;">
-                <div class="skill-item"><strong>Email:</strong> <a href="mailto:cshah18@asu.edu" style="color: var(--accent); text-decoration: none;">cshah18@asu.edu</a></div>
-                <div class="skill-item"><strong>Location:</strong> Sunnyvale, California, USA</div>
-                <div class="skill-item"><strong>LinkedIn:</strong> <a href="#" style="color: var(--accent); text-decoration: none;">linkedin.com/in/chintan-shah</a></div>
+            <h3 class="section-title">Get In Touch</h3>
+            
+            <div class="contact-layout">
+                <div class="contact-info-block">
+                    <p class="lead-text" style="margin-bottom: 1.5rem;">
+                        Have questions about my technical projects, interested in discussing medical hardware R&D openings, or want to coordinate process engineering opportunities? Drop a message directly through the system.
+                    </p>
+                    <div class="skill-list" style="gap: 1rem; font-family: 'JetBrains+Mono', monospace;">
+                        <div class="skill-item"><strong>Email:</strong> <a href="mailto:cshah18@asu.edu" style="color: var(--accent); text-decoration: none;">cshah18@asu.edu</a> [cite: 3]</div>
+                        <div class="skill-item"><strong>Location:</strong> Sunnyvale, California, USA [cite: 3]</div>
+                        <div class="skill-item"><strong>LinkedIn:</strong> <a href="#" style="color: var(--accent); text-decoration: none;">linkedin.com/in/chintan-shah</a> [cite: 3]</div>
+                    </div>
+                </div>
+
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" id="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="johndoe@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" placeholder="R&D Engineering Opportunities" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message or Query</label>
+                        <textarea name="message" id="message" rows="5" placeholder="Hi Chintan, I reviewed your universal syringe attachment project and wanted to connect..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Secure Message →</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Chintan Shah. Built entirely from scratch and hosted securely via GitHub Pages.</p>
+        <p>&copy; 2026 Chintan Shah. All rights reserved. Managed and hosted securely via GitHub Pages.</p>
     </footer>
 
 </body>
