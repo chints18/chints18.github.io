@@ -323,17 +323,13 @@
             0% { stroke-dashoffset: 0; }
             100% { stroke-dashoffset: -120; }
         }
-        @keyframes latticeDegrade {
-            0%, 100% { opacity: 0.9; stroke-width: 1.5; }
-            50% { opacity: 0.2; stroke-width: 0.5; }
+        @keyframes vestPulse {
+            0%, 100% { opacity: 0.7; stroke-width: 1.2; }
+            50% { opacity: 1; stroke-width: 1.8; }
         }
         @keyframes droneFly {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
-        }
-        @keyframes radarSweep {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
         @keyframes conveyorLoop {
             0% { stroke-dashoffset: 0; }
@@ -470,6 +466,7 @@
             font-weight: bold;
         }
 
+        /* Formspree Integrated Contact Form Styles */
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -589,6 +586,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <!-- Nav Link Button to download resume directly -->
                     <li><a href="ChintanShah_Resume.pdf" download class="btn btn-secondary nav-btn">Resume ↓</a></li>
                 </ul>
             </nav>
@@ -596,6 +594,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero-section" id="about">
             <div class="badge">AVAILABLE FOR R&D DESIGN ROLES</div>
             <h1>Chintan Shah</h1>
@@ -605,10 +604,12 @@
             </p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn" style="margin-right: 1rem;">Explore Projects</a>
+                <!-- Resume Download Button Embedded Here -->
                 <a href="ChintanShah_Resume.pdf" download class="btn btn-secondary">Download Full Resume (PDF) ↓</a>
             </div>
         </section>
 
+        <!-- Projects Section (Collapsible, with GIF Placeholders) -->
         <section id="projects">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <h3 class="section-title">Technical Projects Matrix</h3>
@@ -617,6 +618,7 @@
             
             <div class="projects-stack">
 
+                <!-- Project 1 -->
                 <details class="project-card" open>
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -645,6 +647,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: Incremental Syringe Indexer -->
                                 <svg width="160" height="180" viewBox="0 0 100 120">
                                     <rect x="35" y="10" width="30" height="80" rx="3" fill="none" stroke="#334155" stroke-width="2"/>
                                     <line x1="35" y1="25" x2="45" y2="25" stroke="#334155" stroke-width="1.5"/>
@@ -666,6 +669,7 @@
                     </div>
                 </details>
 
+                <!-- Project 2 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -681,8 +685,8 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Co-developed the structural design configuration, frame layout, and mechanical component integration for a high-performance electric go-kart chassis.</li>
-                                    <li>Successfully submitted and secured a formal Indian Certificate of Registration of Design under Class 12-08 (Design No. 380658-001) from the Government Patent Office.</li>
+                                    <li>Co-developed the structural design configuration, frame layout, and mechanical component integration for a high-performance electric go-kart chassis[cite: 10].</li>
+                                    <li>Successfully submitted and secured a formal Indian Certificate of Registration of Design under Class 12-08 (Design No. 380658-001) from the Government Patent Office[cite: 10].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">Chassis Layout</span>
@@ -691,25 +695,43 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
-                                <svg width="160" height="180" viewBox="0 0 100 100">
-                                    <rect x="20" y="20" width="60" height="60" rx="4" fill="none" stroke="#334155" stroke-width="2"/>
-                                    <line x1="20" y1="50" x2="80" y2="50" stroke="#334155" stroke-dasharray="4 4"/>
-                                    <line x1="50" y1="20" x2="50" y2="80" stroke="#334155" stroke-dasharray="4 4"/>
-                                    <g transform="translate(50,50)">
-                                        <g style="animation: rotateChassis 8s linear infinite">
-                                            <circle cx="0" cy="0" r="28" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="6 4"/>
-                                            <rect x="-32" y="-5" width="8" height="10" rx="1" fill="#94a3b8"/>
-                                            <rect x="24" y="-5" width="8" height="10" rx="1" fill="#94a3b8"/>
-                                            <line x1="-24" y1="0" x2="24" y2="0" stroke="#38bdf8" stroke-width="2"/>
+                                <!-- Vector Animation: Complete Electric Go-Kart Chassis Profile -->
+                                <svg width="200" height="150" viewBox="0 0 140 90">
+                                    <!-- Low profile tubular chassis safety bumpers and side pods -->
+                                    <path d="M 15 62 L 32 62 L 40 45 L 88 45 L 98 62 L 122 62 L 115 35 L 82 35 L 68 52 L 30 52 Z" fill="none" stroke="#475569" stroke-width="1.5" />
+                                    <!-- Aerodynamic floor and bucket seat structures -->
+                                    <path d="M 52 52 L 46 28 L 64 22 L 72 45" fill="none" stroke="#334155" stroke-width="2" />
+                                    <!-- Rear mounted battery pack / electrical core unit -->
+                                    <rect x="76" y="36" width="16" height="12" rx="1" fill="none" stroke="#10b981" stroke-width="1.5" />
+                                    <line x1="80" y1="42" x2="88" y2="42" stroke="#10b981" stroke-width="1"/>
+                                    <!-- Front steering column line configuration -->
+                                    <line x1="38" y1="46" x2="48" y2="36" stroke="#94a3b8" stroke-width="1.5" />
+                                    <circle cx="48" cy="36" r="3.5" fill="none" stroke="#f8fafc" stroke-width="1" />
+                                    <!-- Active Rolling Wheel Assemblies -->
+                                    <g transform="translate(28,62)">
+                                        <g style="animation: rotateChassis 2s linear infinite">
+                                            <circle cx="0" cy="0" r="11" fill="none" stroke="#0ea5e9" stroke-width="2.5" />
+                                            <circle cx="0" cy="0" r="4" fill="none" stroke="#38bdf8" stroke-width="1" />
+                                            <line x1="-11" y1="0" x2="11" y2="0" stroke="#38bdf8" stroke-width="1" />
+                                            <line x1="0" y1="-11" x2="0" y2="11" stroke="#38bdf8" stroke-width="1" />
+                                        </g>
+                                    </g>
+                                    <g transform="translate(104,62)">
+                                        <g style="animation: rotateChassis 2s linear infinite">
+                                            <circle cx="0" cy="0" r="11" fill="none" stroke="#0ea5e9" stroke-width="2.5" />
+                                            <circle cx="0" cy="0" r="4" fill="none" stroke="#38bdf8" stroke-width="1" />
+                                            <line x1="-11" y1="0" x2="11" y2="0" stroke="#38bdf8" stroke-width="1" />
+                                            <line x1="0" y1="-11" x2="0" y2="11" stroke="#38bdf8" stroke-width="1" />
                                         </g>
                                     </g>
                                 </svg>
-                                <div class="vector-label">Class 12-08 Casing Ortho</div>
+                                <div class="vector-label">Patented Electric Drive Track</div>
                             </div>
                         </div>
                     </div>
                 </details>
 
+                <!-- Project 3 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -725,10 +747,10 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Designed a wearable, assistive robotic lower-extremity exoskeleton frame structure in SolidWorks to support physical rehabilitation pathways.</li>
-                                    <li>Synchronized mechanical link articulation paths with biological human gait cycles to establish proper angular displacement bounds.</li>
-                                    <li>Built a functional Proof-of-Concept (PoC) model to validate linkages, integrating high-torque DC motors, position tracking sensors, and a custom control network.</li>
-                                    <li>Conducted structural load analysis to successfully validate shear and tensile safety factors across load-bearing frame links.</li>
+                                    <li>Designed a wearable, assistive robotic lower-extremity exoskeleton frame structure in SolidWorks to support physical rehabilitation pathways[cite: 4].</li>
+                                    <li>Synchronized mechanical link articulation paths with biological human gait cycles to establish proper angular displacement bounds[cite: 4].</li>
+                                    <li>Built a functional Proof-of-Concept (PoC) model to validate linkages, integrating high-torque DC motors, position tracking sensors, and a custom control network[cite: 4].</li>
+                                    <li>Conducted structural load analysis to successfully validate shear and tensile safety factors across load-bearing frame links[cite: 4].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">SolidWorks+CAE</span>
@@ -738,6 +760,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: Hip/Knee Mechanical Linkage Gait Cycle Loop -->
                                 <svg width="160" height="180" viewBox="0 0 120 120">
                                     <circle cx="60" cy="30" r="5" fill="#94a3b8"/>
                                     <g transform="translate(60,30)">
@@ -761,6 +784,7 @@
                     </div>
                 </details>
 
+                <!-- Project 4 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -776,10 +800,10 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Assessed dynamic musculoskeletal injury risks induced on tactical responders by layered equipment loads (body armor vests and duty belts).</li>
-                                    <li>Programmed a data processing pipeline in MATLAB to analyze streamed multi-axis accelerometer and gyroscope data streams to quantify gait trajectory variations.</li>
-                                    <li>Calculated nonlinear Lyapunov chaotic trajectory exponents to evaluate stability shifts under unexpected external physical perturbations.</li>
-                                    <li>Conducted formal RULA and REBA risk index profiles for vehicle entry and exit tasks, modeling a swiveling seat control mechanism to reduce lower lumbar strain.</li>
+                                    <li>Assessed dynamic musculoskeletal injury risks induced on tactical responders by layered equipment loads (body armor vests and duty belts)[cite: 1].</li>
+                                    <li>Programmed a data processing pipeline in MATLAB to analyze streamed multi-axis accelerometer and gyroscope data streams to quantify gait trajectory variations[cite: 1].</li>
+                                    <li>Calculated nonlinear Lyapunov chaotic trajectory exponents to evaluate stability shifts under unexpected external physical perturbations[cite: 1].</li>
+                                    <li>Conducted formal RULA and REBA risk index profiles for vehicle entry and exit tasks, modeling a swiveling seat control mechanism to reduce lower lumbar strain[cite: 1].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">MATLAB Data Pipeline</span>
@@ -788,19 +812,39 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
-                                <svg width="180" height="180" viewBox="0 0 140 100">
-                                    <rect x="10" y="10" width="120" height="80" rx="4" fill="none" stroke="#334155" stroke-width="1.5"/>
-                                    <path d="M 15 50 L 30 50 L 40 20 L 50 80 L 60 45 L 70 55 L 80 50 L 130 50" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2 2"/>
-                                    <path d="M 15 50 Q 35 20 55 75 T 95 40 T 130 50" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-dasharray="120" stroke-dashoffset="120" style="animation: signalOscillate 2s linear infinite"/>
-                                    <circle cx="55" cy="75" r="3" fill="#38bdf8"/>
-                                    <text x="63" y="78" fill="#38bdf8" font-family="JetBrains Mono" font-size="6">Perturbation λ</text>
+                                <!-- Vector Layout: Dynamic Split Screen showing Uniform Armor Vest (Left) and Lyapunov Wave Chart (Right) -->
+                                <svg width="230" height="160" viewBox="0 0 170 100">
+                                    <!-- Left Panel Configuration: Police Tactical Vest Shell Layout -->
+                                    <g transform="translate(8, 12)">
+                                        <path d="M 14 8 L 24 8 L 27 18 L 39 18 L 42 8 L 52 8 L 56 32 L 50 72 L 16 72 L 10 32 Z" fill="none" stroke="#0ea5e9" stroke-width="1.5" style="animation: vestPulse 3s ease-in-out infinite" />
+                                        <!-- Uniform heavy utility belt structure -->
+                                        <rect x="12" y="72" width="42" height="6" rx="1" fill="none" stroke="#475569" stroke-width="1.5" />
+                                        <!-- Section lines for trauma plates inside vest -->
+                                        <line x1="20" y1="28" x2="46" y2="28" stroke="#334155" stroke-width="1"/>
+                                        <line x1="20" y1="42" x2="46" y2="42" stroke="#334155" stroke-width="1"/>
+                                        <line x1="20" y1="56" x2="46" y2="56" stroke="#334155" stroke-width="1"/>
+                                        <line x1="33" y1="18" x2="33" y2="72" stroke="#334155" stroke-width="1" stroke-dasharray="2 2" />
+                                    </g>
+                                    <!-- Right Panel Configuration: Kinematic Trajectory Displacement Chart -->
+                                    <g transform="translate(82, 12)">
+                                        <!-- Boundary grid block for metrics plotting -->
+                                        <rect x="0" y="4" width="76" height="74" rx="3" fill="none" stroke="#334155" stroke-width="1" />
+                                        <line x1="0" y1="41" x2="76" y2="41" stroke="#1e293b" stroke-width="1" />
+                                        <!-- Normal base-condition walking curve -->
+                                        <path d="M 4 41 Q 18 12 36 41 T 72 41" fill="none" stroke="#475569" stroke-width="1" stroke-dasharray="2 2"/>
+                                        <!-- Chaotic high-variability path matching perturbed state -->
+                                        <path d="M 4 41 Q 16 2 32 52 T 56 16 T 72 41" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="120" stroke-dashoffset="120" style="animation: signalOscillate 2.5s linear infinite"/>
+                                        <circle cx="32" cy="52" r="2.5" fill="#10b981" />
+                                        <text x="6" y="71" fill="#38bdf8" font-family="JetBrains Mono" font-size="5.5">Lyapunov Exp</text>
+                                    </g>
                                 </svg>
-                                <div class="vector-label">Lyapunov Real-Time Stream</div>
+                                <div class="vector-label">Biomechanical Stress Map</div>
                             </div>
                         </div>
                     </div>
                 </details>
 
+                <!-- Project 5 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -816,10 +860,10 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li><strong>Theoretical Concept Paper:</strong> Formulated a comprehensive advanced biomaterials research design proposal executed completely on paper for academic evaluation.</li>
-                                    <li>Proposed a theoretical shape-memory smart composite blending Polycaprolactone (PCL) matrices with alginate hydrogels reinforced via graphene oxide nanocomposites.</li>
-                                    <li>Architected theoretical extrusion printing paths utilizing modeled gyroid internal structural geometries to align material porosity bounds with human bone resorption graphs.</li>
-                                    <li>Outlined theoretical assay methodologies to verify degradation paths and structural load profiles over a conceptual 12-week timeline.</li>
+                                    <li><strong>Theoretical Concept Paper:</strong> Formulated a comprehensive advanced biomaterials research design proposal executed completely on paper for academic evaluation[cite: 2].</li>
+                                    <li>Proposed a theoretical shape-memory smart composite blending Polycaprolactone (PCL) matrices with alginate hydrogels reinforced via graphene oxide nanocomposites[cite: 2].</li>
+                                    <li>Architected theoretical extrusion printing paths utilizing modeled gyroid internal structural geometries to align material porosity bounds with human bone resorption graphs[cite: 2].</li>
+                                    <li>Outlined theoretical assay methodologies to verify degradation paths and structural load profiles over a conceptual 12-week timeline[cite: 2].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">Biomaterial Theory</span>
@@ -828,6 +872,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: Resorption Grid Degradation -->
                                 <svg width="160" height="180" viewBox="0 0 100 100">
                                     <g stroke="#0ea5e9" stroke-width="1.5" fill="none" style="animation: latticeDegrade 4s ease-in-out infinite">
                                         <path d="M 20 20 Q 35 35 50 20 T 80 20"/>
@@ -845,6 +890,7 @@
                     </div>
                 </details>
 
+                <!-- Project 6 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -860,10 +906,10 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Acted as the Lead Product Designer for a high-priority conceptual transport layout meant to securely ferry critical medical cargo across city corridors.</li>
-                                    <li>Engineered the protective shell architecture and motor torque balances tailored to a 40–50 lb structural launch envelope (25 lb max net cargo footprint).</li>
-                                    <li>Specified dynamic power paths calling for a 300 kV high-thrust brushless engine running on a 6S 10,000 mAh LiPo grid delivering 210W of continuous shaft power.</li>
-                                    <li>Designed an integrated storage chamber containing tuned internal dampening mechanisms to decouple internal payload boxes from high-frequency structural vibration.</li>
+                                    <li>Acted as the Lead Product Designer for a high-priority conceptual transport layout meant to securely ferry critical medical cargo across city corridors[cite: 7].</li>
+                                    <li>Engineered the protective shell architecture and motor torque balances tailored to a 40–50 lb structural launch envelope (25 lb max net cargo footprint)[cite: 7].</li>
+                                    <li>Specified dynamic power paths calling for a 300 kV high-thrust brushless engine running on a 6S 10,000 mAh LiPo grid delivering 210W of continuous shaft power[cite: 7].</li>
+                                    <li>Designed an integrated storage chamber containing tuned internal dampening mechanisms to decouple internal payload boxes from high-frequency structural vibration[cite: 7].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">Vibration Isolation</span>
@@ -872,6 +918,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: Drone Sweep Profile -->
                                 <g style="animation: droneFly 2.5s ease-in-out infinite" display="block">
                                     <svg width="160" height="140" viewBox="0 0 120 100">
                                         <line x1="20" y1="50" x2="100" y2="50" stroke="#334155" stroke-width="3"/>
@@ -893,6 +940,7 @@
                     </div>
                 </details>
 
+                <!-- Project 7 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -908,10 +956,10 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Published an automated materials acquisition framework in the International Research Journal of Engineering and Technology (IRJET).</li>
-                                    <li>Modeled a multi-tier carousel system and sorting conveyor layout in SolidWorks to minimize storage retrieval times.</li>
-                                    <li>Constructed an electromechanical prototype combining an Arduino Uno core with L298 h-bridge drivers to automate rack positioning cycles.</li>
-                                    <li>Configured dual direct-current motor parameters tuned to handle shifting load balances (up to 47 N.m torque loads at low-speed intervals).</li>
+                                    <li>Published an automated materials acquisition framework in the International Research Journal of Engineering and Technology (IRJET)[cite: 8].</li>
+                                    <li>Modeled a multi-tier carousel system and sorting conveyor layout in SolidWorks to minimize storage retrieval times[cite: 8].</li>
+                                    <li>Constructed an electromechanical prototype combining an Arduino Uno core with L298 h-bridge drivers to automate rack positioning cycles[cite: 8].</li>
+                                    <li>Configured dual direct-current motor parameters tuned to handle shifting load balances (up to 47 N.m torque loads at low-speed intervals)[cite: 8].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">SolidWorks Layout</span>
@@ -920,6 +968,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: Synchronous Carousel Logistics Track -->
                                 <svg width="160" height="180" viewBox="0 0 100 100">
                                     <rect x="15" y="35" width="70" height="30" rx="15" fill="none" stroke="#334155" stroke-width="2"/>
                                     <path d="M 15 35 link 85 35" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="6 4" stroke-dashoffset="0" style="animation: conveyorLoop 1.5s linear infinite"/>
@@ -939,6 +988,7 @@
                     </div>
                 </details>
 
+                <!-- Project 8 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -954,9 +1004,9 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Built an engineering script pipeline designed to parse multi-variable human performance charts to extract predictive health metrics.</li>
-                                    <li>Structured data cleaning and scaling stages to normalize raw input tables containing biographical attributes and sensor readings.</li>
-                                    <li>Applied Principal Component Analysis (PCA) to significantly isolate dominant performance variances and drop data dimensionality constraints.</li>
+                                    <li>Built an engineering script pipeline designed to parse multi-variable human performance charts to extract predictive health metrics[cite: 5].</li>
+                                    <li>Structured data cleaning and scaling stages to normalize raw input tables containing biographical attributes and sensor readings[cite: 5].</li>
+                                    <li>Applied Principal Component Analysis (PCA) to significantly isolate dominant performance variances and drop data dimensionality constraints[cite: 5].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">Python Analytics</span>
@@ -965,6 +1015,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: PCA Variance Scatter Clustering -->
                                 <svg width="160" height="180" viewBox="0 0 100 100">
                                     <line x1="15" y1="85" x2="85" y2="85" stroke="#334155" stroke-width="1.5"/>
                                     <line x1="15" y1="15" x2="15" y2="85" stroke="#334155" stroke-width="1.5"/>
@@ -986,6 +1037,7 @@
                     </div>
                 </details>
 
+                <!-- Project 9 -->
                 <details class="project-card">
                     <summary class="project-header">
                         <div class="project-title-block">
@@ -1001,10 +1053,10 @@
                         <div class="project-grid">
                             <div class="project-description">
                                 <ul>
-                                    <li>Synthesized a closed-loop data architecture combining Galvanic Skin Response (GSR) data logs with concurrent heart rate variance parameters.</li>
-                                    <li>Mapped changes in skin electrical conductance to isolate peripheral signs of stress and sympathetic autonomic nervous activation.</li>
-                                    <li>Utilized 3-axis accelerometer thresholds to rule out kinetic motion artifacts, confining processing rules exclusively to restful data periods.</li>
-                                    <li>Designed a closed-loop mechanism intended to introduce subtle acoustic cues to help mitigate elevated emotional spikes.</li>
+                                    <li>Synthesized a closed-loop data architecture combining Galvanic Skin Response (GSR) data logs with concurrent heart rate variance parameters[cite: 6].</li>
+                                    <li>Mapped changes in skin electrical conductance to isolate peripheral signs of stress and sympathetic autonomic nervous activation[cite: 6].</li>
+                                    <li>Utilized 3-axis accelerometer thresholds to rule out kinetic motion artifacts, confining processing rules exclusively to restful data periods[cite: 6].</li>
+                                    <li>Designed a closed-loop mechanism intended to introduce subtle acoustic cues to help mitigate elevated emotional spikes[cite: 6].</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-badge">GSR Circuit Isolation</span>
@@ -1013,6 +1065,7 @@
                                 </div>
                             </div>
                             <div class="project-visual-wrapper">
+                                <!-- Vector Schematic Animation: Closed-Loop Sensor Intersect Wave -->
                                 <svg width="180" height="180" viewBox="0 0 120 100">
                                     <circle cx="25" cy="30" r="12" fill="none" stroke="#334155" stroke-width="1.5"/>
                                     <text x="20" y="32" fill="#94a3b8" font-family="JetBrains Mono" font-size="6">GSR</text>
@@ -1036,73 +1089,79 @@
             </div>
         </section>
 
+        <!-- Professional Timeline Section -->
         <section id="experience">
             <h3 class="section-title">Professional Industry Track</h3>
             <div class="timeline">
                 
+                <!-- Role 1 -->
                 <div class="timeline-item">
                     <div class="time-meta">March 2026 – Present</div>
                     <div class="timeline-title">Robotic Production Associate</div>
                     <div class="timeline-company">Matic Robots | Sunnyvale, CA</div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Lead Quality Assurance (QA) and Verification & Validation (V&V) procedures for complex robotic hardware frames and mobile autonomous machinery across high-throughput lines.</li>
-                            <li>Calibrate intricate multi-axis tracking cameras and navigation nodes, documenting and fixing anomalies between hardware sensors and embedded code.</li>
-                            <li>Manage final inspection safety gates and shipping sign-offs for all consumer configurations, verifying strict conformance with performance criteria.</li>
+                            <li>Lead Quality Assurance (QA) and Verification & Validation (V&V) procedures for complex robotic hardware frames and mobile autonomous machinery across high-throughput lines[cite: 3].</li>
+                            <li>Calibrate intricate multi-axis tracking cameras and navigation nodes, documenting and fixing anomalies between hardware sensors and embedded code[cite: 3].</li>
+                            <li>Manage final inspection safety gates and shipping sign-offs for all consumer configurations, verifying strict conformance with performance criteria[cite: 3].</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Role 2 -->
                 <div class="timeline-item">
                     <div class="time-meta">January 2025 – February 2026</div>
                     <div class="timeline-title">Research Associate (Medical Device Development)</div>
                     <div class="timeline-company">Yaron Lab | Tempe, AZ</div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Spearheaded the complete end-to-end R&D lifecycle for a novel, patent-pending universal syringe attachment optimizing fluid delivery controls.</li>
-                            <li>Translated clinical user requirements into multi-part SolidWorks CAD assemblies and successfully fabricated functional mechanical prototypes.</li>
-                            <li>Applied FMEA risk management protocols to analyze mechanical load hazards, helping improve target fluid spot containment by >90% (p &lt; 0.05).</li>
-                            <li>Generated comprehensive design verification datasets and rigorous compliance documentation following ISO 13485 Design Control paths.</li>
+                            <li>Spearheaded the complete end-to-end R&D lifecycle for a novel, patent-pending universal syringe attachment optimizing fluid delivery controls[cite: 3].</li>
+                            <li>Translated clinical user requirements into multi-part SolidWorks CAD assemblies and successfully fabricated functional mechanical prototypes[cite: 3].</li>
+                            <li>Applied FMEA risk management protocols to analyze mechanical load hazards, helping improve target fluid spot containment by >90% (p &lt; 0.05)[cite: 3].</li>
+                            <li>Generated comprehensive design verification datasets and rigorous compliance documentation following ISO 13485 Design Control paths[cite: 3].</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Role 3 -->
                 <div class="timeline-item">
                     <div class="time-meta">May 2025 – August 2025</div>
                     <div class="timeline-title">R&D Process Intern (Ophthalmic Engineering)</div>
                     <div class="timeline-company">Alcon | Belmont, CA</div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Conducted precise bench testing and Test Method Validation (TMV) to assess essential mechanical specifications (axial stiffness and haptic height) for Intraocular Lenses (IOL), directly contributing to the design verification of advanced ophthalmic devices.</li>
-                            <li>Developed a data analysis method in Python to characterize axial stiffness data and derive haptic height for Intraocular Lenses; conducted Gage R&R studies in Minitab to validate measurement system reliability.</li>
-                            <li>Developed InSpec (Micro Vu) scripts to automate quality inspection workflows, transitioning IOL batch testing from sample-based to full 100% inspection of 40-unit batches, resulting in enhanced compliance and increased throughput.</li>
-                            <li>Designed and 3D-printed mechanical model eye to support Train-the-Trainer sessions for laser activation procedures, replicating clinical ocular geometry to serve as a functional training prop.</li>
+                            <li>Conducted precise bench testing and Test Method Validation (TMV) to assess essential mechanical specifications (axial stiffness and haptic height) for Intraocular Lenses (IOL), directly contributing to the design verification of advanced ophthalmic devices[cite: 3].</li>
+                            <li>Developed a data analysis method in Python to characterize axial stiffness data and derive haptic height for Intraocular Lenses; conducted Gage R&R studies in Minitab to validate measurement system reliability[cite: 3].</li>
+                            <li>Developed InSpec (Micro Vu) scripts to automate quality inspection workflows, transitioning IOL batch testing from sample-based to full 100% inspection of 40-unit batches, resulting in enhanced compliance and increased throughput[cite: 3].</li>
+                            <li>Designed and 3D-printed mechanical model eye to support Train-the-Trainer sessions for laser activation procedures, replicating clinical ocular geometry to serve as a functional training prop[cite: 3].</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Role 4 -->
                 <div class="timeline-item">
                     <div class="time-meta">June 2021 – May 2023</div>
                     <div class="timeline-title">Vice Captain & Mechanical Design Engineer</div>
                     <div class="timeline-company">DJS Karting | Mumbai, India</div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Co-developed the fundamental mechanical structural configuration, geometric frame layout, and drive integration workflows for an all-electric go-kart layout.</li>
-                            <li>Translated complex technical assemblies into robust hardware fixtures, managing precision tolerances and mechanical interface requirements axial to the chassis frame structure.</li>
-                            <li>Spearheaded the drafting configurations and regulatory compliance documentation that successfully secured a formal Design Registration Patent from the Government of India.</li>
+                            <li>Co-developed the fundamental mechanical structural configuration, geometric frame layout, and drive integration workflows for an all-electric go-kart layout[cite: 3].</li>
+                            <li>Translated complex technical assemblies into robust hardware fixtures, managing precision tolerances and mechanical interface requirements axial to the chassis frame structure[cite: 3].</li>
+                            <li>Spearheaded the drafting configurations and regulatory compliance documentation that successfully secured a formal Design Registration Patent from the Government of India[cite: 3].</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Role 5 -->
                 <div class="timeline-item">
                     <div class="time-meta">December 2019 – March 2020</div>
                     <div class="timeline-title">Research Intern</div>
                     <div class="timeline-company">Rapid Manufacturing Lab (IIT Bombay) | Mumbai, India</div>
                     <div class="timeline-body">
                         <ul>
-                            <li>Utilized SolidWorks and AutoCAD engines to model and draft high-precision mechanical prototypes and complex technical engineering drawings for advanced product design cycles.</li>
-                            <li>Applied detailed Finite Element Analysis (FEA) to evaluate static stress matrices and map dynamic mechanical profiles on prototype components.</li>
-                            <li>Identified structural vulnerabilities within iterative component geometry, executing rapid optimization protocols that achieved a 20% reduction in design errors.</li>
+                            <li>Utilized SolidWorks and AutoCAD engines to model and draft high-precision mechanical prototypes and complex technical engineering drawings for advanced product design cycles[cite: 3].</li>
+                            <li>Applied detailed Finite Element Analysis (FEA) to evaluate static stress matrices and map dynamic mechanical profiles on prototype components[cite: 3].</li>
+                            <li>Identified structural vulnerabilities within iterative component geometry, executing rapid optimization protocols that achieved a 20% reduction in design errors[cite: 3].</li>
                         </ul>
                     </div>
                 </div>
@@ -1110,6 +1169,7 @@
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills">
             <h3 class="section-title">Core Skills & Competencies</h3>
             <div class="skills-container">
@@ -1146,6 +1206,7 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" style="margin-bottom: 4rem;">
             <h3 class="section-title">Get In Touch</h3>
             
@@ -1161,6 +1222,7 @@
                     </div>
                 </div>
 
+                <!-- Formspree Connected Contact Form -->
                 <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form">
                     <div class="form-group">
                         <label for="name">Your Name</label>
